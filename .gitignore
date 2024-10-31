@@ -8,4 +8,7 @@
 /var/
 /vendor/
  .idea/
+
 ###< symfony/framework-bundle ###
+/docker/dbdata
+/.env

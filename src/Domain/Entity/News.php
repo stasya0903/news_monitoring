@@ -3,17 +3,23 @@
 namespace App\Domain\Entity;
 
 use App\Domain\ValueObject\Url;
+use App\Domain\ValueObject\Title;
 
 class News
 {
     private ?int $id = null;
-    private ?string $title = null;
-    //todo typecast?
-    private ?string $created_at = null;
+
+
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->created_at;
+    }
 
 
     public function __construct(
-        private Url  $url
+        private Url  $url,
+        private Title $title,
+        private \DateTime $created_at = new \DateTime()
     )
     {
     }
@@ -23,7 +29,7 @@ class News
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(): Title
     {
         return $this->title;
     }

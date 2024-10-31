@@ -20,6 +20,6 @@ interface NewsRepositoryInterface
      */
     public function findByIds(array $ids): iterable;
 
-    public function save(News $lead): void;
+    public function save(News $news): void;
 
 }

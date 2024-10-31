@@ -2,7 +2,7 @@
 
 namespace App\Domain\ValueObject;
 
-class Url
+class Title
 {
     private string $value;
 
@@ -19,10 +19,9 @@ class Url
 
     private function assertValidName(?string $value): void
     {
-        if (filter_var($value, FILTER_VALIDATE_URL) === false) {
-            throw new \InvalidArgumentException('Should be valid url');
+        if (!$value) {
+            throw new \InvalidArgumentException('Only news with title can be added');
         }
-
     }
 
 }
