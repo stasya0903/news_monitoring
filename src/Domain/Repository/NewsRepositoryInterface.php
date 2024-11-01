@@ -23,5 +23,5 @@ interface NewsRepositoryInterface
      * @return void
      */
     public function save(News $news): void;
-
 }
+

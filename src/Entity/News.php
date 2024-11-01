@@ -23,7 +23,6 @@ class News
     private ?string $title = null;
 
 
-
     public function getId(): ?int
     {
         return $this->id;

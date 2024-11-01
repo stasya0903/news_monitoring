@@ -11,5 +11,6 @@ interface ReportGeneratorInterface
      * @param News[] $news
      * @return Report
      */
-    public function generate(iterable $news) : Report;
+    public function generate(iterable $news): Report;
 }
+

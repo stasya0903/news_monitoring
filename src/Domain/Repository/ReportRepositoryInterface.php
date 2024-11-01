@@ -11,5 +11,4 @@ interface ReportRepositoryInterface
      * @return void
      */
     public function save(Report $report): void;
-
 }

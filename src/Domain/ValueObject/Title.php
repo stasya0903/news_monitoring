@@ -23,5 +23,4 @@ class Title
             throw new \InvalidArgumentException('Only news with title can be added');
         }
     }
-
 }

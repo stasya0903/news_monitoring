@@ -10,11 +10,10 @@ class News
     private ?int $id = null;
 
     public function __construct(
-        private Url  $url,
+        private Url $url,
         private Title $title,
         private \DateTime $created_at = new \DateTime()
-    ){
-
+    ) {
     }
 
     public function getId(): ?int
