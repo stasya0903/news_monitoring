@@ -8,5 +8,4 @@ class AddNewsResponse
         public int $id
     ) {
     }
-
 }
