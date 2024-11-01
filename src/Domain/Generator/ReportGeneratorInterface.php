@@ -13,4 +13,3 @@ interface ReportGeneratorInterface
      */
     public function generate(iterable $news): Report;
 }
-

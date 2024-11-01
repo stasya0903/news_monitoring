@@ -24,4 +24,3 @@ interface NewsRepositoryInterface
      */
     public function save(News $news): void;
 }
-

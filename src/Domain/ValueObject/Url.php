@@ -22,6 +22,5 @@ class Url
         if (filter_var($value, FILTER_VALIDATE_URL) === false) {
             throw new \InvalidArgumentException('Should be valid url');
         }
-
     }
 }

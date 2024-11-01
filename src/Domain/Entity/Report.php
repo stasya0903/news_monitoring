@@ -22,4 +22,3 @@ class Report
         return $this->content;
     }
 }
-
