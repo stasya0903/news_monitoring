@@ -9,12 +9,10 @@ use App\Domain\ValueObject\Url;
 
 class CommonNewsFactory implements NewsFactoryInterface
 {
-
     public function create(
         Url $url,
         Title $title
-    ): News
-    {
+    ): News {
         return new News(
             $url,
             $title,

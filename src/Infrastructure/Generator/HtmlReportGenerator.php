@@ -9,7 +9,6 @@ use App\Domain\ValueObject\Content;
 
 class HtmlReportGenerator implements ReportGeneratorInterface
 {
-
     /**
      * @param iterable $news
      * @return Report

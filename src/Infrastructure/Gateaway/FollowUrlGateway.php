@@ -29,7 +29,7 @@ class FollowUrlGateway implements UrlGatewayInterface
      */
     private function getDOM($url): DOMDocument
     {
-        $dom = new DOMDocument;
+        $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTMLFile($url);
         return $dom;

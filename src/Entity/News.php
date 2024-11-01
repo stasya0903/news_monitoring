@@ -70,5 +70,4 @@ class News
 
         return $this;
     }
-
 }
