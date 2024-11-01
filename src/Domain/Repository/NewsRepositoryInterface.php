@@ -13,13 +13,15 @@ interface NewsRepositoryInterface
      */
     public function findAll(): iterable;
 
-    public function findById(int $id): ?News;
-
     /**
      * @return News[]
      */
-    public function findByIds(array $ids): iterable;
+    public function findByIds(iterable $ids): iterable;
 
+    /**
+     * @param News $news
+     * @return void
+     */
     public function save(News $news): void;
 
 }

@@ -9,13 +9,6 @@ class News
 {
     private ?int $id = null;
 
-
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->created_at;
-    }
-
-
     public function __construct(
         private Url  $url,
         private Title $title,
@@ -38,5 +31,13 @@ class News
     {
         return $this->url;
     }
+
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->created_at;
+    }
+
+
+
 
 }

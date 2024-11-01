@@ -12,6 +12,10 @@ use DOMDocument;
 
 class FollowUrlGateway implements UrlGatewayInterface
 {
+    /**
+     * @param UrlGatewayRequest $request
+     * @return UrlGatewayResponse
+     */
     public function visitLink(UrlGatewayRequest $request): UrlGatewayResponse
     {
         $dom = $this->getDOM($request->url->getValue());
@@ -19,6 +23,10 @@ class FollowUrlGateway implements UrlGatewayInterface
         return new UrlGatewayResponse(new Title($title));
     }
 
+    /**
+     * @param $url
+     * @return DOMDocument
+     */
     private function getDOM($url): DOMDocument
     {
         $dom = new DOMDocument;
@@ -27,6 +35,10 @@ class FollowUrlGateway implements UrlGatewayInterface
         return $dom;
     }
 
+    /**
+     * @param DOMDocument $dom
+     * @return string
+     */
     private function getTitle(DOMDocument $dom): string
     {
         $list = $dom->getElementsByTagName('title');

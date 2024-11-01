@@ -14,14 +14,15 @@ class News
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $created_at = null;
     #[ORM\Column(length: 255)]
     private ?string $url = null;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $created_at = null;
+
 
     public function getId(): ?int
     {

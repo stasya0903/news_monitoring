@@ -8,6 +8,9 @@ use App\Domain\ValueObject\Title;
 
 class UrlGatewayResponse
 {
+    /**
+     * @param Title $title
+     */
     public function __construct(
         public readonly Title $title,
     )

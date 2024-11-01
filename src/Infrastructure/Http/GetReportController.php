@@ -4,33 +4,32 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Http;
 
-
-use App\Application\UseCase\AddNews\AddNewsRequest;
-use App\Application\UseCase\AddNews\AddNewsUseCase;
+use App\Application\UseCase\getReport\GetReportRequest;
+use App\Application\UseCase\getReport\GetReportUseCase;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route(
-    '/api/v1/news/add',
-    name: 'news_add',
+    '/api/v1/news/report',
+    name: 'news_report',
     methods: ['POST']
 
 )]
-final class AddNewsController extends AbstractController
+final class GetReportController extends AbstractController
 {
     public function __construct(
-        private readonly AddNewsUseCase $useCase,
+        private readonly GetReportUseCase $useCase,
     )
     {
     }
 
     /**
-     * @param AddNewsRequest $request
+     * @param GetReportRequest $request
      * @return Response
      */
-    public function __invoke(#[MapRequestPayload] AddNewsRequest $request): Response
+    public function __invoke(#[MapRequestPayload] GetReportRequest $request): Response
     {
         try {
             $response = ($this->useCase)($request);
@@ -39,7 +38,7 @@ final class AddNewsController extends AbstractController
             $errorResponse = [
                 'message' => $e->getMessage()
             ];
-            return $this->json($errorResponse, 400);
+            return $this->json($errorResponse, 400, [], ['json_encode_options' => JSON_UNESCAPED_UNICODE]);
         }
 
     }

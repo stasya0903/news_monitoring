@@ -45,9 +45,16 @@ RUN docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) \
     mysqli pdo pdo_mysql \
     pdo_mysql
 
+
+
+COPY --chown=www-data:www-data ./ /data/mysite.local
+RUN chown -R www-data:www-data /data/mysite.local
+
 WORKDIR /data
 
 VOLUME /data
+
+USER www-data
 
 CMD ["php-fpm"]
 
