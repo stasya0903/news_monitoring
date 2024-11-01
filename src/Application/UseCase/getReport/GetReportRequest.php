@@ -2,7 +2,6 @@
 
 namespace App\Application\UseCase\getReport;
 
-
 class GetReportRequest
 {
     /**
@@ -10,8 +9,6 @@ class GetReportRequest
      */
     public function __construct(
         public readonly iterable $ids
-    )
-    {
+    ){
     }
-
 }

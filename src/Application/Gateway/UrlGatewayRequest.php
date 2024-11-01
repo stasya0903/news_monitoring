@@ -13,7 +13,6 @@ class UrlGatewayRequest
      */
     public function __construct(
         public readonly Url $url
-    )
-    {
+    ){
     }
 }

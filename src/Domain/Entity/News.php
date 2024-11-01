@@ -13,8 +13,8 @@ class News
         private Url  $url,
         private Title $title,
         private \DateTime $created_at = new \DateTime()
-    )
-    {
+    ){
+
     }
 
     public function getId(): ?int
@@ -36,8 +36,4 @@ class News
     {
         return $this->created_at;
     }
-
-
-
-
 }

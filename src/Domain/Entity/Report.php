@@ -11,8 +11,7 @@ class Report
     private string $link;
     public function __construct(
         private readonly Content $content,
-    )
-    {
+    ){
     }
 
     public function getLink(): string
@@ -24,5 +23,4 @@ class Report
     {
         return $this->content;
     }
-
 }
