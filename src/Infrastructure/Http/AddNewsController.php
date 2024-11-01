@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Http;
 
-
 use App\Application\UseCase\AddNews\AddNewsRequest;
 use App\Application\UseCase\AddNews\AddNewsUseCase;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,14 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
     '/api/v1/news/add',
     name: 'news_add',
     methods: ['POST']
-
 )]
 final class AddNewsController extends AbstractController
 {
     public function __construct(
         private readonly AddNewsUseCase $useCase,
-    )
-    {
+    ) {
     }
 
     /**
@@ -41,6 +38,5 @@ final class AddNewsController extends AbstractController
             ];
             return $this->json($errorResponse, 400);
         }
-
     }
 }

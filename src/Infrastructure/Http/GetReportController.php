@@ -15,14 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
     '/api/v1/news/report',
     name: 'news_report',
     methods: ['POST']
-
 )]
 final class GetReportController extends AbstractController
 {
     public function __construct(
         private readonly GetReportUseCase $useCase,
-    )
-    {
+    ) {
     }
 
     /**
@@ -40,6 +38,5 @@ final class GetReportController extends AbstractController
             ];
             return $this->json($errorResponse, 400, [], ['json_encode_options' => JSON_UNESCAPED_UNICODE]);
         }
-
     }
 }

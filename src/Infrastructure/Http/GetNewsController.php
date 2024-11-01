@@ -13,14 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
     '/api/v1/news/list',
     name: 'news_list',
     methods: ['GET']
-
 )]
 final class GetNewsController extends AbstractController
 {
     public function __construct(
         private readonly GetListUseCase $useCase,
-    )
-    {
+    ) {
     }
 
     /**
@@ -48,6 +46,5 @@ final class GetNewsController extends AbstractController
                 ['json_encode_options' => JSON_UNESCAPED_UNICODE]
             );
         }
-
     }
 }
