@@ -13,7 +13,6 @@ class UrlGatewayResponse
      */
     public function __construct(
         public readonly Title $title,
-    )
-    {
+    ) {
     }
 }

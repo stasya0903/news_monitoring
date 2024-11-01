@@ -12,7 +12,7 @@ class GetReportUseCase
         private readonly ReportRepositoryInterface $reportRepository,
         private readonly NewsRepositoryInterface $newsRepository,
         private readonly ReportGeneratorInterface $reportGenerator
-    ){
+    ) {
 
     }
 

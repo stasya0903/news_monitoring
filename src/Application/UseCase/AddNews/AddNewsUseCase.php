@@ -16,7 +16,7 @@ class AddNewsUseCase
         private readonly NewsRepositoryInterface $newsRepository,
         private readonly UrlGatewayInterface $urlGateway,
 
-    ){
+    ) {
     }
     public function __invoke(AddNewsRequest $request): AddNewsResponse
     {

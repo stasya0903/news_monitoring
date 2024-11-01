@@ -9,7 +9,7 @@ class GetListUseCase
     public function __construct(
         private readonly NewsRepositoryInterface $newsRepository,
 
-    ){
+    ) {
     }
     public function __invoke(): GetListResponse
     {

@@ -6,6 +6,6 @@ class GetListResponse
 {
     public function __construct(
         public iterable $news
-    ){
+    ) {
     }
 }
