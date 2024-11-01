@@ -14,8 +14,7 @@ class FileReportRepository implements ReportRepositoryInterface
      */
     public function __construct(
         private readonly Filesystem $filesystem
-    )
-    {
+    ) {
     }
 
     /**
@@ -34,11 +33,8 @@ class FileReportRepository implements ReportRepositoryInterface
             $reflectionProperty = new \ReflectionProperty(Report::class, 'link');
             $reflectionProperty->setAccessible(true);
             $reflectionProperty->setValue($report, $fileLink);
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             throw new FileSaveException('Error while saving report file:' . $exception->getMessage());
         }
-
-
-
     }
 }

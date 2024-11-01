@@ -54,7 +54,7 @@ class DbNewsRepository extends ServiceEntityRepository implements NewsRepository
         $items =  $query->getQuery()->getResult();
         $reflectionProperty = new \ReflectionProperty(News::class, 'id');
         $reflectionProperty->setAccessible(true);
-        return array_map(function(NewsORM $dbRecord) use ($reflectionProperty) {
+        return array_map(function (NewsORM $dbRecord) use ($reflectionProperty) {
             $news = new News(
                 new Url($dbRecord->getUrl()),
                 new Title($dbRecord->getTitle()),
@@ -63,6 +63,5 @@ class DbNewsRepository extends ServiceEntityRepository implements NewsRepository
             $reflectionProperty->setValue($news, $dbRecord->getId());
             return $news;
         }, $items);
-
     }
 }
