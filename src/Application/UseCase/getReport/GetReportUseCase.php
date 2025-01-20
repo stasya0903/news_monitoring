@@ -9,7 +9,6 @@ use App\Domain\Repository\ReportRepositoryInterface;
 class GetReportUseCase
 {
     public function __construct(
-        private readonly ReportRepositoryInterface $reportRepository,
         private readonly NewsRepositoryInterface $newsRepository,
         private readonly ReportGeneratorInterface $reportGenerator
     ) {
@@ -19,7 +18,6 @@ class GetReportUseCase
     {
         $news = $this->newsRepository->findByIds($request->ids);
         $report = $this->reportGenerator->generate($news);
-        $this->reportRepository->save($report);
         return new GetReportResponse($report->getLink());
     }
 }

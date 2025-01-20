@@ -3,9 +3,9 @@
 namespace App\Infrastructure\Repository;
 
 use App\Domain\Entity\News;
+use App\Domain\Generator\Url;
 use App\Domain\Repository\NewsRepositoryInterface;
 use App\Domain\ValueObject\Title;
-use App\Domain\ValueObject\Url;
 use App\Entity\News as NewsORM;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;

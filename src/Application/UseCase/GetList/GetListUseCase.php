@@ -2,6 +2,7 @@
 
 namespace App\Application\UseCase\GetList;
 
+use App\Application\DTO\GetListResponseDTO;
 use App\Domain\Repository\NewsRepositoryInterface;
 
 class GetListUseCase
@@ -11,20 +12,19 @@ class GetListUseCase
     ) {
     }
 
-    public function __invoke(): GetListResponse
+    public function __invoke(): iterable
     {
         $news = $this->newsRepository->findByIds();
-        $newsInfo = array_map(
+        return array_map(
             function ($item) {
-                return [
-                    'id' => $item->getId(),
-                    'date' => $item->getCreatedAt(),
-                    'url' => $item->getUrl()->getValue(),
-                    'title' => $item->getTitle()->getValue()
-                ];
+                return new GetListResponseDto(
+                    $item->getId(),
+                    $item->getCreatedAt(),
+                    $item->getUrl()->getValue(),
+                    $item->getTitle()->getValue()
+                );
             },
             $news
         );
-        return new GetListResponse($newsInfo);
     }
 }

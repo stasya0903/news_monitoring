@@ -4,7 +4,7 @@ namespace App\Domain\Generator;
 
 use App\Domain\Entity\News;
 use App\Domain\Entity\Report;
-
+//application
 interface ReportGeneratorInterface
 {
     /**

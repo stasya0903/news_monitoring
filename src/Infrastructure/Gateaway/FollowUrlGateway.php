@@ -18,7 +18,7 @@ class FollowUrlGateway implements UrlGatewayInterface
      */
     public function visitLink(UrlGatewayRequest $request): UrlGatewayResponse
     {
-        $dom = $this->getDOM($request->url->getValue());
+        $dom = $this->getDOM($request->url);
         $title = $this->getTitle($dom);
         return new UrlGatewayResponse(new Title($title));
     }

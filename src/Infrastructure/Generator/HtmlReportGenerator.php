@@ -6,12 +6,25 @@ use App\Domain\Entity\News;
 use App\Domain\Entity\Report;
 use App\Domain\Generator\ReportGeneratorInterface;
 use App\Domain\ValueObject\Content;
+use App\Infrastructure\Exceptions\FileSaveException;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Uid\Uuid;
 
+// save file
 class HtmlReportGenerator implements ReportGeneratorInterface
 {
     /**
+     * @param Filesystem $filesystem
+     */
+    public function __construct(
+        private readonly Filesystem $filesystem
+    ) {
+    }
+
+    /**
      * @param iterable $news
-     * @return Report
+     * @return string
+     * @throws FileSaveException
      */
     public function generate(iterable $news): Report
     {
@@ -19,7 +32,28 @@ class HtmlReportGenerator implements ReportGeneratorInterface
         foreach ($news as $item) {
             $data .= $this->addNewsToReport($item);
         };
-        return new Report(new Content($this->addToHtmlPage($data)));
+        $report = new Report(new Content($this->addToHtmlPage($data)));
+        $this->save($report);
+        return $report;
+    }
+    /**
+     * @param Report $report
+     * @return void
+     * @throws FileSaveException
+     */
+    public function save(Report $report): void
+    {
+        try {
+            $this->filesystem->mkdir('reports');
+            $fileName = $this->getFileName('reports');
+            $fileLink = "reports/report_$fileName.html";
+            $this->filesystem->dumpFile($fileLink, $report->getContent()->getValue());
+            $reflectionProperty = new \ReflectionProperty(Report::class, 'link');
+            $reflectionProperty->setAccessible(true);
+            $reflectionProperty->setValue($report, $fileLink);
+        } catch (\Exception $exception) {
+            throw new FileSaveException('Error while saving report file:' . $exception->getMessage());
+        }
     }
 
     /**
@@ -54,5 +88,11 @@ class HtmlReportGenerator implements ReportGeneratorInterface
         </ul>
       </body>
     </html>";
+    }
+
+    private function getFileName($extension = 'html'): string
+    {
+        $uuid = Uuid::v4();
+        return sprintf('%s.%s', $uuid, $extension);
     }
 }

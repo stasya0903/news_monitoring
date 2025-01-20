@@ -2,8 +2,9 @@
 
 namespace App\Domain\Entity;
 
-use App\Domain\ValueObject\Url;
+use App\Domain\Generator\Url;
 use App\Domain\ValueObject\Title;
+use DateTimeImmutable;
 
 class News
 {
@@ -12,7 +13,8 @@ class News
     public function __construct(
         private Url $url,
         private Title $title,
-        private \DateTime $created_at = new \DateTime()
+        //TO DO immutable
+        private DateTimeImmutable $created_at = new DateTimeImmutable()
     ) {
     }
 
@@ -31,7 +33,7 @@ class News
         return $this->url;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): DateTimeImmutable
     {
         return $this->created_at;
     }
