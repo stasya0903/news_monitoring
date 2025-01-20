@@ -2,7 +2,7 @@
 
 namespace App\Application\UseCase\getReport;
 
-use App\Domain\Generator\ReportGeneratorInterface;
+use App\Application\Generator\ReportGeneratorInterface;
 use App\Domain\Repository\NewsRepositoryInterface;
 use App\Domain\Repository\ReportRepositoryInterface;
 

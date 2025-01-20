@@ -2,7 +2,6 @@
 
 namespace App\Domain\Entity;
 
-use App\Domain\Generator\Url;
 use App\Domain\ValueObject\Title;
 use DateTimeImmutable;
 

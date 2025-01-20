@@ -3,7 +3,7 @@
 namespace App\Infrastructure\Repository;
 
 use App\Domain\Entity\News;
-use App\Domain\Generator\Url;
+use App\Domain\Entity\Url;
 use App\Domain\Repository\NewsRepositoryInterface;
 use App\Domain\ValueObject\Title;
 use App\Entity\News as NewsORM;

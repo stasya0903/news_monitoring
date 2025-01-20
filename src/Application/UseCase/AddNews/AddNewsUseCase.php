@@ -4,8 +4,8 @@ namespace App\Application\UseCase\AddNews;
 
 use App\Application\Gateway\UrlGatewayInterface;
 use App\Application\Gateway\UrlGatewayRequest;
+use App\Domain\Entity\Url;
 use App\Domain\Factory\NewsFactoryInterface;
-use App\Domain\Generator\Url;
 use App\Domain\Repository\NewsRepositoryInterface;
 
 class AddNewsUseCase

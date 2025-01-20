@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Generator;
+namespace App\Domain\Entity;
 
 class Url
 {

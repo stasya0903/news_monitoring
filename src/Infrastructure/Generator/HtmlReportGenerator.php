@@ -2,9 +2,9 @@
 
 namespace App\Infrastructure\Generator;
 
+use App\Application\Generator\ReportGeneratorInterface;
 use App\Domain\Entity\News;
 use App\Domain\Entity\Report;
-use App\Domain\Generator\ReportGeneratorInterface;
 use App\Domain\ValueObject\Content;
 use App\Infrastructure\Exceptions\FileSaveException;
 use Symfony\Component\Filesystem\Filesystem;
