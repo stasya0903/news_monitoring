@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "9c48cc6c-379d-420b-a5f3-f5f694d91535",
+		"name": "symphony",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24545719"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "url",
+							"value": "https://www.gosuslugi.ru/help/news",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://mysite.local/api/v1/news/add",
+					"protocol": "http",
+					"host": [
+						"mysite",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"news",
+						"add"
+					],
+					"query": [
+						{
+							"key": "new",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\": [1,2,3]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://mysite.local/api/v1/news/report?ids",
+					"protocol": "http",
+					"host": [
+						"mysite",
+						"local"
+					],
+					"path": [
+						"api",
+						"v1",
+						"news",
+						"report"
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://mysite.local/api/v1/news/list"
+			},
+			"response": []
+		}
+	]
+}

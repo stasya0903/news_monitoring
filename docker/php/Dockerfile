@@ -26,7 +26,8 @@ RUN apk update \
         postgresql-dev \
         curl \
         wget \
-        bash
+        bash \
+        mysql mysql-client
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
@@ -40,11 +41,20 @@ RUN docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) \
     pcntl \
     pdo_pgsql \
     sockets \
-    zip
+    zip \
+    mysqli pdo pdo_mysql \
+    pdo_mysql
+
+
+
+COPY --chown=www-data:www-data ./ /data/mysite.local
+RUN chown -R www-data:www-data /data/mysite.local
 
 WORKDIR /data
 
 VOLUME /data
+
+USER www-data
 
 CMD ["php-fpm"]
 

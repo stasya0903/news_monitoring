@@ -32,20 +32,23 @@ services:
       - app-network
 
   # контейнер с MySQL
-  db:
+  mysql:
     image: mysql:5.7.22
-    container_name: db
+    container_name: mysql
     ports:
       - "3306:3306"
-    env_file:
-      - .env
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
     restart: unless-stopped
     volumes:
       - ./docker/dbdata:/var/lib/mysql
     networks:
       - app-network
 
-#Docker Networks
+
 networks:
   app-network:
     driver: bridge
