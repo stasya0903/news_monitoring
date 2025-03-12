@@ -14,7 +14,6 @@ class CreateNewsHandler
         private readonly NewsRepositoryInterface $newsRepository,
         private readonly NewsFactoryInterface $newsFactory
     ) {
-
     }
 
     public function handle(CreateNewsCommand $command): News

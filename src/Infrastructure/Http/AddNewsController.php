@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Infrastructure\Http;
 
 use App\Application\UseCase\AddNews\AddNewsRequest;
-use App\Infrastructure\Factory\AddNewsUseCase;
+use App\Application\UseCase\AddNews\AddNewsUseCase;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;

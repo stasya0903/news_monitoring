@@ -37,5 +37,4 @@ class DbNewsRepository extends ServiceEntityRepository implements NewsRepository
         $reflectionProperty->setAccessible(true);
         $reflectionProperty->setValue($news, $dbRecord->getId());
     }
-
 }

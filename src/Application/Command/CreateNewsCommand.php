@@ -10,7 +10,6 @@ class CreateNewsCommand
         private readonly string $url,
         private readonly string $title,
     ) {
-
     }
 
     public function getUrl(): string
