@@ -3,28 +3,19 @@
 namespace App\Application\UseCase\GetList;
 
 use App\Application\DTO\GetListResponseDTO;
-use App\Domain\Repository\NewsRepositoryInterface;
+use App\Application\Query\GetNewsHandler;
+use App\Application\Query\GetNewsQuery;
 
 class GetListUseCase
 {
     public function __construct(
-        private readonly NewsRepositoryInterface $newsRepository,
+        private readonly GetNewsHandler $getNewsHandler,
     ) {
     }
 
     public function __invoke(): iterable
     {
-        $news = $this->newsRepository->findByIds();
-        return array_map(
-            function ($item) {
-                return new GetListResponseDto(
-                    $item->getId(),
-                    $item->getCreatedAt(),
-                    $item->getUrl()->getValue(),
-                    $item->getTitle()->getValue()
-                );
-            },
-            $news
-        );
+        $query = new GetNewsQuery();
+        return  $this->getNewsHandler->handle($query);
     }
 }

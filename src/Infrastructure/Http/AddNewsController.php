@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Infrastructure\Http;
 
 use App\Application\UseCase\AddNews\AddNewsRequest;
-use App\Application\UseCase\AddNews\AddNewsUseCase;
+use App\Infrastructure\Factory\AddNewsUseCase;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
@@ -29,6 +29,7 @@ final class AddNewsController extends AbstractController
      */
     public function __invoke(#[MapRequestPayload] AddNewsRequest $request): Response
     {
+        //ASK validation
         try {
             $response = ($this->useCase)($request);
             return $this->json($response);

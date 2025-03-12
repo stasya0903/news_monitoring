@@ -9,10 +9,10 @@ use App\Domain\ValueObject\Title;
 class UrlGatewayResponse
 {
     /**
-     * @param Title $title
+     * @param string $title
      */
     public function __construct(
-        public readonly Title $title,
+        public readonly string $title,
     ) {
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Generator;
 
+use App\Application\DTO\NewsDTO;
 use App\Application\Generator\ReportGeneratorInterface;
 use App\Domain\Entity\News;
 use App\Domain\Entity\Report;
@@ -57,16 +58,16 @@ class HtmlReportGenerator implements ReportGeneratorInterface
     }
 
     /**
-     * @param News $item
+     * @param NewsDTO $item
      * @return string
      */
-    private function addNewsToReport(News $item): string
+    private function addNewsToReport(NewsDTO $item): string
     {
         return sprintf(
             '
            <li> <a href="%s">%s</a></li>',
-            $item->getUrl()->getValue(),
-            $item->getTitle()->getValue()
+            $item->url,
+            $item->title
         );
     }
 

@@ -3,6 +3,7 @@
 namespace App\Domain\Entity;
 
 use App\Domain\ValueObject\Title;
+use App\Domain\ValueObject\Url;
 use DateTimeImmutable;
 
 class News
@@ -12,7 +13,6 @@ class News
     public function __construct(
         private Url $url,
         private Title $title,
-        //TO DO immutable
         private DateTimeImmutable $created_at = new DateTimeImmutable()
     ) {
     }

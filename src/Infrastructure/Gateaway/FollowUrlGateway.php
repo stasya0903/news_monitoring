@@ -8,7 +8,10 @@ use App\Application\Gateway\UrlGatewayInterface;
 use App\Application\Gateway\UrlGatewayRequest;
 use App\Application\Gateway\UrlGatewayResponse;
 use App\Domain\ValueObject\Title;
+use Cassandra\Exception\ValidationException;
+use Doctrine\DBAL\Driver\Exception;
 use DOMDocument;
+use http\Exception\InvalidArgumentException;
 
 class FollowUrlGateway implements UrlGatewayInterface
 {
@@ -20,7 +23,7 @@ class FollowUrlGateway implements UrlGatewayInterface
     {
         $dom = $this->getDOM($request->url);
         $title = $this->getTitle($dom);
-        return new UrlGatewayResponse(new Title($title));
+        return new UrlGatewayResponse($title);
     }
 
     /**
@@ -42,6 +45,6 @@ class FollowUrlGateway implements UrlGatewayInterface
     private function getTitle(DOMDocument $dom): string
     {
         $list = $dom->getElementsByTagName('title');
-        return  $list->length ? $list->item(0)->textContent : '';
+        return $list->length ? $list->item(0)->textContent : '';
     }
 }
